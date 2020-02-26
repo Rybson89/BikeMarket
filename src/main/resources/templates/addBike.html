@@ -1,0 +1,164 @@
+<!DOCTYPE HTML>
+<html  xmlns:th = "https://www.thymeleaf.org">
+<head>
+	<title>Add Bike</title>
+	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+	<script type="text/javascript" th:inline="javascript">
+		function validateForm() {
+			if(document.getElementById("addName").value == '' ||
+					document.getElementById("addPrice").value == '' ||
+					document.getElementById("addPrice").value == '0'){
+				alert("Wpisz wszystkie pola!");
+				return false;
+			}
+			else {
+				if(document.getElementById("uploadImage").files.length == 0){
+					alert("Wybierz jeszcze zdjecie!");
+					return false;
+				}
+				return true;
+			}
+		}
+
+	</script>
+	<script >
+
+
+		function readURL(input) {
+			if (input.files && input.files[0]) {
+				var reader = new FileReader();
+
+
+				reader.onload = function (e) {
+					$('#blah')
+							.attr('src', e.target.result)
+							.width(300)
+							.height(270);
+				};
+
+				reader.readAsDataURL(input.files[0]);
+			}
+		}
+
+		function validate(evt) {
+			var theEvent = evt || window.event;
+
+			// Handle paste
+			if (theEvent.type === 'paste') {
+				key = event.clipboardData.getData('text/plain');
+			} else {
+				// Handle key press
+				var key = theEvent.keyCode || theEvent.which;
+				key = String.fromCharCode(key);
+			}
+			var regex = /[0-9]|\./;
+			if( !regex.test(key) ) {
+				theEvent.returnValue = false;
+				if(theEvent.preventDefault) theEvent.preventDefault();
+			}
+		}
+	</script>
+
+
+
+
+</head>
+<body>
+<div class="header-bg">
+	<div class="wrap">
+		<div class="h-bg">
+			<div class="total">
+				<div class="bot2"></div>
+				<div class="header">
+					<div class="clear"></div>
+					<div class="header-bot">
+						<div class="logo">
+							<img src="images/logo.png" alt=""/>
+						</div>
+
+						<div class="clear"></div>
+					</div>
+				</div>
+			</div>
+			<div class="menu">
+				<div class="top-nav">
+					<ul>
+						<li class="active"><a href="/">Home</a></li>
+						<li><a href="addbike">Add Bike</a></li>
+						<li><a href="edit">Edit</a></li>
+						<li><a href="delete">Delete</a></li>
+					</ul>
+					<div class="clear"></div>
+				</div>
+			</div>
+	<div class="content-bottom">
+
+	<div class="section group">
+				<div class="col span_2_of_3">
+				  <div class="contact-form">
+
+
+				  	<h3>Add Bike</h3>
+
+					  <form th:action="@{/addbike}" th:object=${skuter} method="post" enctype="multipart/form-data"  onsubmit="return validateForm();">
+						  <div>
+							  <span><label>Name of bike</label></span>
+							  <span><input th:field="*{name}"  type="text" class="textbox" id="addName"></span>
+
+						  </div>
+						  <div>
+							  <span><label>Price [zł]</label></span>
+							  <span><input style="width: 10%;" onkeypress='validate(event)' th:field="*{price}" type="text"  maxlength="6" size="4" id="addPrice"></span>
+						  </div>
+						  <div>
+							  <input type="file"  name="file" id="uploadImage" onchange="readURL(this);" />
+						  </div>
+						  <div>
+							  <input type="submit"  value="Add New Bike" >
+						  </div>
+					  </form>
+
+
+				  </div>
+  				</div>
+				<div class="col span_1_of_3">
+						<div style="margin-left: 10%;">
+							<img  id="blah" src="images/emptyBike.png" alt="" />
+						</div>
+				 </div>
+				 <div class="clear"></div>
+
+				 </div>
+			  </div>
+		</div>
+		<div class="footer">
+			<div class="section group">
+
+
+
+				<div class="col_1_of_4 span_1_of_4 footer-lastgrid">
+					<h3>Get in touch</h3>
+					<ul>
+						<li><a href="#"><img src="images/facebook.png" title="facebook"></a></li>
+						<li><a href="#"><img src="images/twitter.png" title="Twiiter"></a></li>
+						<li><a href="#"><img src="images/rss.png" title="Rss"></a></li>
+						<li><a href="#"><img src="images/gpluse.png" title="Google+"></a></li>
+					</ul>
+					<p> &copy; 2013 Bikes-Market. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+</div>
+</body>
+</html>
+    	
+    	
+            
