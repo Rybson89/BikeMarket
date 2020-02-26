@@ -1,7 +1,7 @@
-package com.example.BikeMarket.Bikes;
+package com.example.BikeMarket.controller;
 
 
-import com.example.BikeMarket.databse.DataBaseAction;
+import com.example.BikeMarket.database.DataBaseAction;
 import com.example.BikeMarket.model.Skuter;
 import com.example.BikeMarket.storage.AmazonStorage;
 import org.springframework.stereotype.Controller;
@@ -13,15 +13,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
-import static com.example.BikeMarket.databse.DataBaseAction.readFromDataBase;
+import static com.example.BikeMarket.database.DataBaseAction.readFromDataBase;
 
 @Controller
 public class BikeMarketController {
-
     public static String uploadDirectory = System.getProperty("user.dir")+"\\upload";
 
     @GetMapping(value = "/")

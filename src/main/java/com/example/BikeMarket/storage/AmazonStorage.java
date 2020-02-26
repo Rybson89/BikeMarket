@@ -11,7 +11,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import static com.example.BikeMarket.Bikes.BikeMarketController.uploadDirectory;
+import static com.example.BikeMarket.controller.BikeMarketController.uploadDirectory;
 
 public class AmazonStorage {
 

@@ -1,4 +1,4 @@
-package com.example.BikeMarket.databse;
+package com.example.BikeMarket.database;
 
 import com.example.BikeMarket.model.Skuter;
 
@@ -6,8 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import static com.example.BikeMarket.databse.Database.polocz;
-import static com.example.BikeMarket.databse.Database.rozlocz;
+import static com.example.BikeMarket.database.Database.polocz;
+import static com.example.BikeMarket.database.Database.rozlocz;
 
 public class DataBaseAction {
     public static void sendBike(Skuter skuter){
