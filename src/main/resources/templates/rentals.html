@@ -1,0 +1,282 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org" xmlns:custom="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Rentals</title>
+	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+	<script type="text/javascript" th:inline="javascript">
+		function validateForm() {
+
+			if(document.getElementById("idBike2").value == '' || document.getElementById("idBike2").value == '0'){
+				alert("Wybierz obiekt!");
+				return false;
+			} else if(document.getElementById("editName").value == '' ||
+					document.getElementById("editPrice").value == '' ||
+					document.getElementById("editPrice").value == '0'){
+				alert("Wpisz wszystkie pola!");
+				return false;
+			}
+			else {
+				return true;
+			}
+		}
+
+	</script>
+	<script>
+
+		function readURL(input) {
+			if (input.files && input.files[0]) {
+				var reader = new FileReader();
+
+
+				reader.onload = function (e) {
+					$('#blah')
+							.attr('src', e.target.result)
+							.width(300)
+							.height(270);
+				};
+
+				reader.readAsDataURL(input.files[0]);
+			}
+		}
+
+		function validate(evt) {
+			var theEvent = evt || window.event;
+
+			// Handle paste
+			if (theEvent.type === 'paste') {
+				key = event.clipboardData.getData('text/plain');
+			} else {
+				// Handle key press
+				var key = theEvent.keyCode || theEvent.which;
+				key = String.fromCharCode(key);
+			}
+			var regex = /[0-9]|\./;
+			if( !regex.test(key) ) {
+				theEvent.returnValue = false;
+				if(theEvent.preventDefault) theEvent.preventDefault();
+			}
+		}
+
+		$.get("/costam/costam/", : "pupaslonia");
+
+	</script>
+
+	<style>
+		.vertical-menu {
+			width: 100%;
+			height: 300px;
+			overflow-y: auto;
+		}
+
+		.vertical-menu a {
+			background-color: #eee;
+			color: black;
+			display: block;
+			padding: 12px;
+			text-decoration: none;
+		}
+
+		.vertical-menu a:hover {
+			background-color: #ccc;
+		}
+
+		.vertical-menu a.active {
+			background-color: #2c4eaf;
+			color: white;
+		}
+	</style>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script>
+
+	</script>
+
+	<script type="text/javascript" th:inline="javascript">
+		function function1(userID)
+		{
+
+
+
+			location.replace("/rentals:"+userID);
+			$.ajax({
+				contentType: 'application/json;charset=UTF-8',
+				url: '/selectID',
+				dataType: 'json',
+				type: 'POST',
+				cache: true, // Force requested pages not to be cached by the browser
+				processData: false, // Avoid making query string instead of JSON
+				data: userID,
+			}).done(function (data) {
+
+			}).fail(function () {
+				console.log('AJAX call failed :(');
+			});
+			// document.getElementById("EoC").textContent = "Email of Customer: "+document.getElementById(userID+"_email").innerHTML;
+			// document.getElementById("IoC").textContent = "ID of customer: #"+userID;
+
+
+
+		}
+
+
+
+	</script>
+	<script type="text/javascript">
+		document.getElementById("example").setAttribute('value','My default value');
+	</script>
+
+</head>
+<body>
+<div class="header-bg">
+	<div class="wrap">
+		<div class="h-bg">
+			<div class="total">
+				<div class="bot2"></div>
+				<div class="header">
+					<div class="clear"></div>
+					<div class="header-bot">
+						<div style="float: right;" >
+							<a href="/"><img  style="height: 50px; width: 80px" src="images/logout.png" alt=""/></a>
+						</div>
+						<div class="logo">
+							<img src="images/logo.png" alt=""/>
+						</div>
+
+						<div class="clear"></div>
+					</div>
+				</div>
+			</div>
+			<div class="menu">
+				<div class="top-nav">
+					<ul>
+						<li class="active"><a href="maintenance">Main</a></li>
+						<li><a href="addbike">Add Bike</a></li>
+						<li><a href="edit">Edit</a></li>
+						<li><a href="rentals">Rentals</a></li>
+					</ul>
+					<div class="clear"></div>
+				</div>
+			</div>
+
+			<div class="content-top">
+				<div class="clear"></div>
+			</div>
+			<div class="content-bottom">
+				<div class="cont span_2_of_3">
+					<h4><span>Rentals of customer</span></h4>
+					<div class="grid-bottom">
+
+<!--						<h2 th:if="${T(com.example.BikeMarket.model.User).isUser(numer)}"><span th:text="'Email of Customer: ' +  ${users[numer].email}"></span></h2>-->
+<!--						<span class="xxx" th:if="${not users[0].isUser(numer)}">Email of Customer:</span>-->
+
+						<h2 id="EoC"><span th:text="'Email of Customer: ' +  ${users[numer].email}"></span></h2>
+						<p class="title" style="height: 38px;" id="IoC" ><span th:text="'ID of customer: #' +  ${users[numer].id}"></span></p>
+						<table>
+							<tr>
+								<td class="block"  ><h5>ID BIKE</h5></td>
+								<td class="block"  ><h5 >Date from</h5></td>
+								<td class="block"  ><h5 >Date to</h5></td>
+								<td class="block"  ><h5 >Price [zł] / day</h5></td>
+
+							</tr>
+
+
+
+							<form th:each="rent: ${users[numer].listUsersBikes}" th:action="@{/rentals}" th:object="${rental}" method="POST" enctype="multipart/form-data">
+								<tr >
+
+									 <input  th:field="*{idUser}" th:id="${rent.idBike}+_idUser" type="hidden">
+
+									<td>	<input  th:field="*{idBike}" th:id="${rent.idBike}" type="hidden">													<p class="title" style="height: 38px; margin-right: 50px;"  >  <span th:text="'ID: ' +  ${rent.idBike}" ></span></p></td>
+									<td>	<input th:field="*{dateFrom}" type="date"  style="margin-right: 10px; margin-bottom: 10px;" th:id="${rent.idBike}+_dateFromPOST" >  <input  th:id="${rent.idBike}+_dateFrom"   type="hidden"  th:value="${rent.dateFrom}" ></td>
+									<td>	<input  th:field="*{dateTo}" type="date" style="margin-right: 10px; margin-bottom: 10px;" th:id="${rent.idBike}+_dateToPOST" >    <input  th:id="${rent.idBike}+_dateTo"   type="hidden"  th:value="${rent.dateTo}" ></td>
+									<td>	<input  th:field="*{price}" style="margin-right: 10px; margin-bottom: 10px;" th:id="${rent.idBike}+_pricePOST" >     <input  th:id="${rent.idBike}+_price"   type="hidden"  th:value="${rent.price}" ></td>
+									<td>	<input   style="margin-right: 10px; margin-bottom: 10px;" type="submit"   value="Submit"></td>
+
+									<script type="text/javascript">
+										var idBike = [[${rent.idBike}]] ;
+										var idUser = [[${users[numer].id}]] ;
+
+										document.getElementById(idBike+"").value = idBike;
+										document.getElementById(idBike+"_idUser").value = idUser;
+
+										document.getElementById(idBike+"_dateFromPOST").value = document.getElementById(idBike+"_dateFrom").value;
+										document.getElementById(idBike+"_dateToPOST").value = document.getElementById(idBike+"_dateTo").value;
+										document.getElementById(idBike+"_pricePOST").value = document.getElementById(idBike+"_price").value;
+
+									</script>
+
+								</tr>
+							</form>
+
+						</table>
+
+
+
+
+
+						<div class="clear"></div>
+					</div>
+
+				</div>
+				<div class="rsidebar span_1_of_3">
+					<div class="sidebar">
+						<h4 class="title_block"><span>Customers</span></h4>
+						<div class="newitem">
+
+				<div class="vertical-menu">
+					<a th:each="user: ${users}"  th:onclick="'myFunction();'">
+						<div style="margin-left: 5%;" th:onclick="'javascript:function1(\''+ ${user.id} +'\');'" id="xd">
+						<div class="bot1">
+							<div class="price1" style="height: 19px; margin-bottom: 5%;">
+								<span class="actual" ><p class="title" style="height: 38px;" th:id="${user.id}+_email"  th:text="${user.email}" /></span>
+							</div>
+							<label>ID: #</label><label th:id="${user.id}+_id" class="title" style="height: 38px;" th:text="${user.id}">ID</label>
+						</div>
+						<div class="clear"></div>
+						</div>
+					</a>
+
+				</div>
+
+
+
+							<div class="clear"></div>
+						</div>
+					</div>
+
+
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="footer">
+				<div class="section group">
+
+
+
+					<div class="col_1_of_4 span_1_of_4 footer-lastgrid">
+						<h3>Get in touch</h3>
+						<ul>
+							<li><a href="#"><img src="images/facebook.png" title="facebook"></a></li>
+							<li><a href="#"><img src="images/twitter.png" title="Twiiter"></a></li>
+							<li><a href="#"><img src="images/rss.png" title="Rss"></a></li>
+							<li><a href="#"><img src="images/gpluse.png" title="Google+"></a></li>
+						</ul>
+						<p> &copy; 2013 Bikes-Market. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+</body>
+</html>
+
+
+

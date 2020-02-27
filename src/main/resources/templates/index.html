@@ -33,135 +33,56 @@
 			<div class="total">
 				<div class="bot2"></div>
 				<div class="header">
+
 					<div class="clear"></div>
 					<div class="header-bot">
+						<div style="float: right;" >
+
+							<a href="/login"><img  href="/login"  style="height: 50px; width: 80px" src="images/loginin.png" alt=""/></a>
+							<a href="/register"><img  style="height: 50px; width: 80px" src="images/register.png" alt=""/></a>
+
+						</div>
+						<div class="clear"></div>
 						<div class="logo">
 							<img src="images/logo.png" alt=""/>
 						</div>
 
+
 						<div class="clear"></div>
 					</div>
 				</div>
 			</div>
-			<div class="menu">
-				<div class="top-nav">
-					<ul>
-						<li class="active"><a href="/">Home</a></li>
-						<li><a href="addbike">Add Bike</a></li>
-						<li><a href="edit">Edit</a></li>
-						<li><a href="delete">Delete</a></li>
-					</ul>
-					<div class="clear"></div>
-				</div>
+
+
+			<div class="clear"></div>
+			<div class="content-bottom">
+
+				<img src="images/automarketBG.jpg" alt=""/>
+
+
+				<div class="clear"></div>
 			</div>
+			<div class="footer">
+				<div class="section group">
 
-				<div class="content-top">
-					<div class="col_1_of_3 span_1_of_3">
-						<div class="span4">
-							<img src="images/pic.jpg" alt=""/>
-							<div class="item_html">
-								<div class="banner-box3">
-									<span class="text20">Free Shipping</span>
-									<span class="text21">Lorem Ipsum</span>
-									<a href="?id_product=23&amp;controller=product&amp;id_lang=1" class="link2"></a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col_1_of_3 span_1_of_3">
-						<div class="span4">
-							<img src="images/pic1.jpg" alt=""/>
-							<div class="item_html">
-								<div class="banner-box3">
-									<span class="text20">Free Shipping</span>
-									<span class="text21">Lorem Ipsum</span>
-									<a href="?id_product=23&amp;controller=product&amp;id_lang=1" class="link2"></a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col_1_of_3 span_1_of_3">
-						<div class="span4">
-							<img src="images/pic2.jpg" alt=""/>
-							<div class="item_html">
-								<div class="banner-box3">
-									<span class="text20">Free Shipping</span>
-									<span class="text21">Lorem Ipsum</span>
-									<a href="?id_product=23&amp;controller=product&amp;id_lang=1" class="link2"></a>
-								</div>
-							</div>
-						</div>
+
+
+					<div class="col_1_of_4 span_1_of_4 footer-lastgrid">
+						<h3>Get in touch</h3>
+						<ul>
+							<li><a href="#"><img src="images/facebook.png" title="facebook"></a></li>
+							<li><a href="#"><img src="images/twitter.png" title="Twiiter"></a></li>
+							<li><a href="#"><img src="images/rss.png" title="Rss"></a></li>
+							<li><a href="#"><img src="images/gpluse.png" title="Google+"></a></li>
+						</ul>
+						<p> &copy; 2013 Bikes-Market. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
 					</div>
 					<div class="clear"></div>
-				</div>
-				<div class="content-bottom">
-					<div class="cont span_2_of_3">
-						<h4><span>Our Bikes</span></h4>
-						<div class="grid-bottom">
-
-							<div class="col_1_of_b span_1_of_bottom1" th:each="skuter: ${skuters}">
-									<div class="grids" >
-										<img th:src="${skuter.imageUrl}" alt=""/>
-										<div class="price">
-											<div class="bot1">
-												<p class="title" style="height: 38px;" th:text="${skuter.name}"/>
-												<div class="price1" style="height: 19px;">
-													<span class="actual" ><label th:text="${skuter.price}"/><label> zł</label></span>
-												</div>
-											</div>
-											<div class="cart1">
-												<img src="images/cart.png" alt=""/>
-											</div>
-											<div class="clear"></div>
-										</div>
-									</div>
-								<div class="clear"></div>
-							</div>
-
-
-
-
-
-							<div class="clear"></div>
-						</div>
-
-					</div>
-					<div class="rsidebar span_1_of_3">
-						<div class="sidebar">
-							<h4 class="title_block"><span>Info</span></h4>
-							<div class="newitem">
-								<label>Sklep internetowy, realizacja podstawowych operacji CRUD. Web service łączy się z bazą danych od
-								aws amazon. Możliwość realizacji dodawania i edycji pozwala uploadować zdjęcie do storage amazon, następnie url
-								zdięcia jest przypisany bezpośrednio do każdego obiektu w bazie. W formularzu tworzenia motoru zabezpieczono przed nie wypełnieniem pól</label>
-								<div class="clear"></div>
-							</div>
-						</div>
-
-
-					</div>
-					<div class="clear"></div>
-				</div>
-				<div class="footer">
-					<div class="section group">
-
-
-
-						<div class="col_1_of_4 span_1_of_4 footer-lastgrid">
-							<h3>Get in touch</h3>
-							<ul>
-								<li><a href="#"><img src="images/facebook.png" title="facebook"></a></li>
-								<li><a href="#"><img src="images/twitter.png" title="Twiiter"></a></li>
-								<li><a href="#"><img src="images/rss.png" title="Rss"></a></li>
-								<li><a href="#"><img src="images/gpluse.png" title="Google+"></a></li>
-							</ul>
-							<p> &copy; 2013 Bikes-Market. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
-						</div>
-						<div class="clear"></div>
-					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+</div>
 </div>
 </body>
 </html>

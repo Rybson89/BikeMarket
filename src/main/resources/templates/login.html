@@ -1,0 +1,171 @@
+<!DOCTYPE HTML>
+<html  xmlns:th = "https://www.thymeleaf.org">
+<head>
+    <title>Register</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Add padding to containers */
+        .container {
+            padding: 16px;
+            background-color: white;
+        }
+
+        /* Full-width input fields */
+        input[type=text], input[type=password] {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            display: inline-block;
+            border: none;
+            background: #f1f1f1;
+        }
+
+        input[type=text]:focus, input[type=password]:focus {
+            background-color: #ddd;
+            outline: none;
+        }
+
+        /* Overwrite default styles of hr */
+        hr {
+            border: 1px solid #f1f1f1;
+            margin-bottom: 25px;
+        }
+
+        /* Set a style for the submit button */
+        .registerbtn {
+            background-color: #1f9fff;
+            color: white;
+            padding: 16px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            opacity: 0.9;
+        }
+
+        .registerbtn:hover {
+            opacity: 1;
+        }
+
+        /* Add a blue text color to links */
+        a {
+            color: #1f9fff;
+        }
+
+        /* Set a grey background color and center the text of the "sign in" section */
+        .signin {
+            background-color: #f1f1f1;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="header-bg">
+    <div class="wrap">
+        <div class="h-bg">
+            <div class="total">
+                <div class="bot2"></div>
+                <div class="header">
+
+                    <div class="clear"></div>
+                    <div class="header-bot">
+                        <div style="float: right;" >
+
+                            <a href="/login"><img  href="/login"  style="height: 50px; width: 80px" src="images/loginin.png" alt=""/></a>
+                            <a href="/register"><img  style="height: 50px; width: 80px" src="images/register.png" alt=""/></a>
+
+                        </div>
+                        <div class="clear"></div>
+                        <div class="logo">
+                            <img src="images/logo.png" alt=""/>
+                        </div>
+
+
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="content-top">
+
+                <div style="margin-left: 30%;margin-right: 30%; margin-top: 3%;">
+                    <form th:action="@{/login}" th:object=${user} method="post" enctype="multipart/form-data">
+                        <div class="container">
+
+                            <label ><b>Email</b></label>
+                            <input  th:field="*{email}" type="text" placeholder="Enter Email" name="email" required>
+
+                            <label ><b>Password</b></label>
+                            <input th:field="*{passwrod}" type="password" placeholder="Enter Password" name="psw" required>
+
+                            <hr>
+
+                            <button type="submit" class="registerbtn">Login</button>
+                        </div>
+
+                    </form></div>
+
+
+
+                <div class="clear"></div>
+            </div>
+            <div class="content-bottom">
+                <div class="cont span_2_of_3">
+                    <div class="grid-bottom">
+
+
+
+
+
+
+                        <div class="clear"></div>
+                    </div>
+
+                </div>
+                <div class="rsidebar span_1_of_3">
+
+
+
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="footer">
+                <div class="section group">
+
+
+
+                    <div class="col_1_of_4 span_1_of_4 footer-lastgrid">
+                        <h3>Get in touch</h3>
+                        <ul>
+                            <li><a href="#"><img src="images/facebook.png" title="facebook"></a></li>
+                            <li><a href="#"><img src="images/twitter.png" title="Twiiter"></a></li>
+                            <li><a href="#"><img src="images/rss.png" title="Rss"></a></li>
+                            <li><a href="#"><img src="images/gpluse.png" title="Google+"></a></li>
+                        </ul>
+                        <p> &copy; 2013 Bikes-Market. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>
+
+
+

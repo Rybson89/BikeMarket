@@ -53,6 +53,10 @@ body{
 .menu{
 	background:url(../images/menu-bg.gif);
 }
+.content-bottom img{
+	/*display:block;*/
+	width: 100%;
+}
 .top-nav li {
 	color: #FBFAFA;
 	border: none;

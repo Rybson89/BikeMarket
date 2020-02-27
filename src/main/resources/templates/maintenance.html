@@ -1,0 +1,137 @@
+<!DOCTYPE HTML>
+<html  xmlns:th = "https://www.thymeleaf.org">
+<head>
+    <title>Admin module</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+    <script>
+
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#blah')
+                        .attr('src', e.target.result)
+                        .width(300)
+                        .height(270);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+    </script>
+</head>
+<body>
+<div class="header-bg">
+    <div class="wrap">
+        <div class="h-bg">
+            <div class="total">
+                <div class="bot2"></div>
+                <div class="header">
+                    <div class="clear"></div>
+                    <div class="header-bot">
+                        <div style="float: right;" >
+                            <a href="/"><img  style="height: 50px; width: 80px" src="images/logout.png" alt=""/></a>
+                        </div>
+                        <div class="logo">
+                            <img src="images/logo.png" alt=""/>
+                        </div>
+
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="menu">
+                <div class="top-nav">
+                    <ul>
+                        <li class="active"><a href="maintenance">Main</a></li>
+                        <li><a href="addbike">Add Bike</a></li>
+                        <li><a href="edit">Edit</a></li>
+                        <li><a href="rentals">Rentals</a></li>
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+            </div>
+
+            <div class="content-top">
+                <div class="clear"></div>
+            </div>
+            <div class="content-bottom">
+                <div class="cont span_2_of_3">
+                    <h4><span>All Bikes</span></h4>
+                    <div class="grid-bottom">
+
+                        <div class="col_1_of_b span_1_of_bottom1" th:each="skuter: ${skuters}">
+                            <div class="grids" >
+                                <img th:src="${skuter.imageUrl}" alt=""/>
+                                <div class="price">
+                                    <div class="bot1">
+                                        <p class="title" style="height: 38px;" th:text="${skuter.name}"/>
+                                        <div class="price1" style="height: 19px;">
+                                            <span class="actual" ><label th:text="${skuter.price}"/><label> zł / day</label></span>
+                                        </div>
+                                    </div>
+                                    <div class="cart1">
+                                        <img src="images/cart.png" alt=""/>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+
+
+
+
+
+                        <div class="clear"></div>
+                    </div>
+
+                </div>
+                <div class="rsidebar span_1_of_3">
+                    <div class="sidebar">
+                        <h4 class="title_block"><span>Info</span></h4>
+                        <div class="newitem">
+                            <label>Sklep internetowy, realizacja podstawowych operacji CRUD. Web service łączy się z bazą danych od
+                                aws amazon. Możliwość realizacji dodawania i edycji pozwala uploadować zdjęcie do storage amazon, następnie url
+                                zdięcia jest przypisany bezpośrednio do każdego obiektu w bazie. W formularzu tworzenia motoru zabezpieczono przed nie wypełnieniem pól</label>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="footer">
+                <div class="section group">
+
+
+
+                    <div class="col_1_of_4 span_1_of_4 footer-lastgrid">
+                        <h3>Get in touch</h3>
+                        <ul>
+                            <li><a href="#"><img src="images/facebook.png" title="facebook"></a></li>
+                            <li><a href="#"><img src="images/twitter.png" title="Twiiter"></a></li>
+                            <li><a href="#"><img src="images/rss.png" title="Rss"></a></li>
+                            <li><a href="#"><img src="images/gpluse.png" title="Google+"></a></li>
+                        </ul>
+                        <p> &copy; 2013 Bikes-Market. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>
+
+
+

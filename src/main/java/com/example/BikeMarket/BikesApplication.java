@@ -7,7 +7,7 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan({"com.example.BikeMarket","com.example.BikeMarket.controller","com.example.BikeMarket.database","com.example.BikeMarket.model","com.example.BikeMarket.storage"})
+@ComponentScan({"com.example.BikeMarket","com.example.BikeMarket.controller"})
 public class BikesApplication extends SpringBootServletInitializer {
 
 	@Override

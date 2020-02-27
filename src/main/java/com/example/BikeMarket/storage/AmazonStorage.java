@@ -27,6 +27,7 @@ public class AmazonStorage {
 
         Path path =null;
         try {
+            System.out.println(uploadDirectory+"\\image."+dot);
             path = Files.write(Paths.get(uploadDirectory+"\\image."+dot), bytes);
         } catch (IOException e) {
             e.printStackTrace();

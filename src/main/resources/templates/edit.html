@@ -104,7 +104,9 @@
 			document.getElementById("editName").value = document.getElementById(idElement+"_name").innerHTML;
 			document.getElementById("editPrice").value = document.getElementById(idElement+"_price").innerHTML;
 			document.getElementById("blah").src = document.getElementById(idElement+"_image").src;
-			document.getElementById("idBike2").value = idElement;
+			document.getElementById("idBike2").textContent = "ID: #" + idElement;
+			document.getElementById("idBike2_1").value = "" + idElement;
+
 			document.getElementById("editImageUrl").value = document.getElementById(idElement+"_imageUrl").innerHTML;
 
 
@@ -122,6 +124,9 @@
 				<div class="header">
 					<div class="clear"></div>
 					<div class="header-bot">
+						<div style="float: right;" >
+							<a href="/"><img  style="height: 50px; width: 80px" src="images/logout.png" alt=""/></a>
+						</div>
 						<div class="logo">
 							<img src="images/logo.png" alt=""/>
 						</div>
@@ -133,10 +138,10 @@
 			<div class="menu">
 				<div class="top-nav">
 					<ul>
-						<li class="active"><a href="/">Home</a></li>
+						<li class="active"><a href="maintenance">Main</a></li>
 						<li><a href="addbike">Add Bike</a></li>
 						<li><a href="edit">Edit</a></li>
-						<li><a href="delete">Delete</a></li>
+						<li><a href="rentals">Rentals</a></li>
 					</ul>
 					<div class="clear"></div>
 				</div>
@@ -158,14 +163,20 @@
 					</div>
 					</div>
 					<div class="cont1 span_2_of_s">
-						<form th:action="@{/edit}" th:object=${skuter} method="post" enctype="multipart/form-data" onsubmit="return validateForm();">
+						<form th:action="@{/edit}" th:object="${skuter}" method="post" enctype="multipart/form-data" onsubmit="return validateForm();">
 
 						<h5>Name Of Bike</h5>
 								<span><input  type="text" class="textbox" id="editName" th:field="*{name}" ></span>
-							<span><label>ID: </label><input style="font-size: 20px; border:0;"  type="text" class="textbox" id="idBike2" th:field="*{idBike}" readonly></span>
+
+							<span><label id="idBike2"></label>
+								<input th:id="idBike2_1" th:type="hidden" th:field="*{idBike}" readonly>
+
+
+							</span>
+
 							  <h2 class="head">Price</h2>
 							<h3 class="price1"><span><input onkeypress='validate(event)' type="text" class="textbox" id="editPrice" th:field="*{price}" ></span>
-								<label> zł </label>
+								<label> zł  / day</label>
 									<div style="margin-top: 15%;">
 										<label>Photo</label>
 										<input style="margin-left: 15%;" type="file"  name="file" id="editImage" onchange="readURL(this);" />
